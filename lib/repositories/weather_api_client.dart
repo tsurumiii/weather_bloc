@@ -13,6 +13,7 @@ class WeatherApiClient {
   Future<int> getLocationId(String city) async {
     final locationUrl = '$baseUrl/api/location/search/?query=$city';
     final locationResponse = await this.httpClient.get(locationUrl);
+    print(locationResponse.body);
     if (locationResponse.statusCode != 200) {
       throw Exception('error!!!!!');
     }
@@ -24,6 +25,7 @@ class WeatherApiClient {
   Future<Weather> fetchWeather(int locationId) async {
     final weatherUrl = '$baseUrl/api/location/$locationId';
     final weatherResponse = await this.httpClient.get(weatherUrl);
+    print(weatherResponse.body);
     if (weatherResponse.statusCode != 200) {
       throw Exception('error!!!!!');
     }
