@@ -100,4 +100,10 @@ class _WeatherState extends State<Weather> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    _weatherBloc.dispose();
+    super.dispose();
+  }
 }
