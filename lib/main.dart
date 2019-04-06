@@ -38,11 +38,15 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   ThemeBloc _themeBloc = ThemeBloc();
+  SettingsBloc _settingsBloc = SettingsBloc();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      bloc: _themeBloc,
+    return BlocProviderTree(
+      blocProviders: [
+        BlocProvider<ThemeBloc>(bloc: _themeBloc),
+        BlocProvider<SettingsBloc>(bloc: _settingsBloc),
+      ],
       child: BlocBuilder(
         bloc: _themeBloc,
         builder: (_, ThemeState themeState) {
