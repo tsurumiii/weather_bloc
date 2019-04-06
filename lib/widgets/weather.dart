@@ -74,7 +74,7 @@ class _WeatherState extends State<Weather> {
                     ),
                   ),
                   Center(
-                    child: LastUpdated(datatime: weather.lastUpdated),
+                    child: LastUpdated(dateTime: weather.lastUpdated),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 50),
