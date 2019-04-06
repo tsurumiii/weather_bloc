@@ -11,7 +11,7 @@ enum WeatherCondition {
   heavyCloud,
   lightCloud,
   clear,
-  unknown,
+  unknown
 }
 
 class Weather extends Equatable {
@@ -48,10 +48,10 @@ class Weather extends Equatable {
         ]);
 
   static Weather fromJson(dynamic json) {
-    final consolidatedWeather = json['consolidated_wether'][0];
+    final consolidatedWeather = json['consolidated_weather'][0];
     return Weather(
-      condition:
-          _mapStringWeatherCondition(consolidatedWeather['weather_state_abbr']),
+      condition: _mapStringToWeatherCondition(
+          consolidatedWeather['weather_state_abbr']),
       formattedCondition: consolidatedWeather['weather_state_name'],
       minTemp: consolidatedWeather['min_temp'] as double,
       temp: consolidatedWeather['the_temp'] as double,
@@ -63,7 +63,7 @@ class Weather extends Equatable {
     );
   }
 
-  static WeatherCondition _mapStringWeatherCondition(String input) {
+  static WeatherCondition _mapStringToWeatherCondition(String input) {
     WeatherCondition state;
     switch (input) {
       case 'sn':
@@ -74,6 +74,9 @@ class Weather extends Equatable {
         break;
       case 'h':
         state = WeatherCondition.hail;
+        break;
+      case 't':
+        state = WeatherCondition.thunderstorm;
         break;
       case 'hr':
         state = WeatherCondition.heavyRain;
