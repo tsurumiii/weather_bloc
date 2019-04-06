@@ -38,7 +38,7 @@ class _WeatherState extends State<Weather> {
               final city = await Navigator.push(
                 context,
                 CupertinoPageRoute(
-                  builder: (context) => CitySeloction(),
+                  builder: (context) => CitySelection(),
                 ),
               );
               if (city != null) {
