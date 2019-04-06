@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 enum WeatherCondition {
-  show,
+  snow,
   sleet,
   hail,
   thunderstorm,
@@ -67,7 +67,7 @@ class Weather extends Equatable {
     WeatherCondition state;
     switch (input) {
       case 'sn':
-        state = WeatherCondition.show;
+        state = WeatherCondition.snow;
         break;
       case 'sl':
         state = WeatherCondition.sleet;
