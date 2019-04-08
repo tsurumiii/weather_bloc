@@ -75,7 +75,7 @@ class _WeatherState extends State<Weather> {
               final weather = state.weather;
               final themeBloc = BlocProvider.of<ThemeBloc>(context);
               themeBloc.dispatch(WeatherChanged(condition: weather.condition));
-
+              print('bloc: ${weather.location}');
               _refreshCompleter?.complete();
               _refreshCompleter = Completer();
 
